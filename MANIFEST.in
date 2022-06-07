@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include thirumuruganfinance *.css
+recursive-include thirumuruganfinance *.csv
+recursive-include thirumuruganfinance *.html
+recursive-include thirumuruganfinance *.ico
+recursive-include thirumuruganfinance *.js
+recursive-include thirumuruganfinance *.json
+recursive-include thirumuruganfinance *.md
+recursive-include thirumuruganfinance *.png
+recursive-include thirumuruganfinance *.py
+recursive-include thirumuruganfinance *.svg
+recursive-include thirumuruganfinance *.txt
+recursive-exclude thirumuruganfinance *.pyc
