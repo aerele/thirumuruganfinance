@@ -1,0 +1,250 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2022-08-12 16:48:08.656137",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "party_details_section",
+  "party_name",
+  "address",
+  "column_break_5",
+  "division",
+  "unit",
+  "party_type",
+  "phone",
+  "site_area",
+  "block_name",
+  "site_number",
+  "section_break_12",
+  "loan_amount",
+  "interest",
+  "period",
+  "due_date",
+  "due_amount",
+  "column_break_18",
+  "posting_date",
+  "end_date",
+  "total_interest_payable",
+  "total_repayment_amount",
+  "mode_of_disbursement",
+  "cheque_number",
+  "cheque_date",
+  "section_break_21",
+  "remarks",
+  "naming_series",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "party_details_section",
+   "fieldtype": "Section Break",
+   "label": "Party Details"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "party_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Party Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Long Text",
+   "label": "Address",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "division",
+   "fieldtype": "Link",
+   "label": "Division",
+   "options": "Division",
+   "reqd": 1
+  },
+  {
+   "fieldname": "party_type",
+   "fieldtype": "Link",
+   "label": "Party Type",
+   "options": "Party Type"
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "site_area",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Site Area",
+   "options": "Site Area",
+   "reqd": 1
+  },
+  {
+   "fieldname": "block_name",
+   "fieldtype": "Data",
+   "label": "Block Name"
+  },
+  {
+   "fieldname": "site_number",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Site Number"
+  },
+  {
+   "fieldname": "section_break_12",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "loan_amount",
+   "fieldtype": "Currency",
+   "label": "Loan Amount",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "default": "0.80",
+   "fieldname": "interest",
+   "fieldtype": "Float",
+   "label": "Interest",
+   "reqd": 1
+  },
+  {
+   "fieldname": "period",
+   "fieldtype": "Int",
+   "label": "Period",
+   "reqd": 1
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Due Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "due_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Due Amount",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_repayment_amount",
+   "fieldtype": "Currency",
+   "label": "Total Repayment Amount",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "section_break_21",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Long Text",
+   "label": "Remarks"
+  },
+  {
+   "default": ".unit.-.##",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": ".unit.-.##",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "division.abbr",
+   "fieldname": "unit",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Division Abbreviation",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_interest_payable",
+   "fieldtype": "Currency",
+   "label": "Total Interest Payable",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "mode_of_disbursement",
+   "fieldtype": "Select",
+   "label": "Mode of Disbursement",
+   "options": "Cash\nCheque"
+  },
+  {
+   "depends_on": "eval:doc.mode_of_disbursement === \"Cheque\"",
+   "fieldname": "cheque_number",
+   "fieldtype": "Data",
+   "label": "Cheque Number",
+   "mandatory_depends_on": "eval:doc.mode_of_disbursement === \"Cheque\""
+  },
+  {
+   "depends_on": "eval:doc.mode_of_disbursement === \"Cheque\"",
+   "fieldname": "cheque_date",
+   "fieldtype": "Date",
+   "label": "Cheque Date",
+   "mandatory_depends_on": "eval:doc.mode_of_disbursement === \"Cheque\""
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Loan Account",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2022-09-27 12:28:10.055570",
+ "modified_by": "Administrator",
+ "module": "Thirumurugan Finance",
+ "name": "Loan Account",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

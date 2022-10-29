@@ -1,0 +1,222 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2022-06-07 14:30:23.846222",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "loan_account",
+  "unit",
+  "party_name",
+  "mobile_number",
+  "column_break_4",
+  "posting_date",
+  "site_area",
+  "block_name",
+  "house_number",
+  "section_break_6",
+  "dues",
+  "total_due",
+  "total_charges",
+  "total_outstanding",
+  "section_break_8",
+  "due_number",
+  "paid_amount",
+  "remarks",
+  "in_words",
+  "column_break_10",
+  "mode_of_payment",
+  "cheque_number",
+  "cheque_date",
+  "amended_from",
+  "naming_series"
+ ],
+ "fields": [
+  {
+   "fetch_from": "loan_account.party_name",
+   "fieldname": "party_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Party Name",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Now",
+   "fieldname": "posting_date",
+   "fieldtype": "Datetime",
+   "label": "Posting Date",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "loan_account",
+   "fieldtype": "Link",
+   "label": "Loan Account",
+   "options": "Loan Account"
+  },
+  {
+   "fetch_from": "loan_account.phone",
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile Number",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "dues",
+   "fieldtype": "Table",
+   "label": "Dues",
+   "options": "Loan Receipt Due",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "paid_amount",
+   "fieldtype": "Currency",
+   "label": "Paid Amount",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mode_of_payment",
+   "fieldtype": "Select",
+   "label": "Mode of Payment",
+   "options": "Cash\nCheque"
+  },
+  {
+   "depends_on": "eval:doc.mode_of_payment === 'Cheque'",
+   "fieldname": "cheque_number",
+   "fieldtype": "Data",
+   "label": "Cheque Number",
+   "mandatory_depends_on": "eval:doc.mode_of_payment === 'Cheque'"
+  },
+  {
+   "depends_on": "eval:doc.mode_of_payment === 'Cheque'",
+   "fieldname": "cheque_date",
+   "fieldtype": "Date",
+   "label": "Cheque Date",
+   "mandatory_depends_on": "eval:doc.mode_of_payment === 'Cheque'"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Loan Receipt",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_due",
+   "fieldtype": "Currency",
+   "label": "Total Due"
+  },
+  {
+   "fieldname": "total_charges",
+   "fieldtype": "Currency",
+   "label": "Total Charges"
+  },
+  {
+   "fieldname": "total_outstanding",
+   "fieldtype": "Currency",
+   "label": "Total Outstanding"
+  },
+  {
+   "fetch_from": "loan_account.site_area",
+   "fieldname": "site_area",
+   "fieldtype": "Link",
+   "label": "Site Area",
+   "options": "Site Area",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "loan_account.block_name",
+   "fieldname": "block_name",
+   "fieldtype": "Data",
+   "label": "Block Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "loan_account.site_number",
+   "fieldname": "house_number",
+   "fieldtype": "Data",
+   "label": "House Number",
+   "read_only": 1
+  },
+  {
+   "fieldname": "in_words",
+   "fieldtype": "Data",
+   "label": "In Words",
+   "read_only": 1
+  },
+  {
+   "fieldname": "due_number",
+   "fieldtype": "Int",
+   "label": "Due Number",
+   "reqd": 1
+  },
+  {
+   "default": "R.unit.-.YY.-.####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "naming series",
+   "options": "R.unit.-.YY.-.####",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "loan_account.unit",
+   "fieldname": "unit",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Division",
+   "read_only": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "label": "Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2022-08-20 14:29:09.913370",
+ "modified_by": "Administrator",
+ "module": "Thirumurugan Finance",
+ "name": "Loan Receipt",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

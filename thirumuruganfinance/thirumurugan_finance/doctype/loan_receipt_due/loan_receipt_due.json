@@ -1,0 +1,48 @@
+{
+ "actions": [],
+ "creation": "2022-08-12 18:08:25.428993",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "due_number",
+  "due_date",
+  "due_amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Due Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "due_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Due Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "due_number",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Due Number",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-08-17 12:01:08.137816",
+ "modified_by": "Administrator",
+ "module": "Thirumurugan Finance",
+ "name": "Loan Receipt Due",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
